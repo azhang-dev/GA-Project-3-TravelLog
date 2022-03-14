@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  travel_date: 2022-03-14
+  country_id: 1
+  bucketlist: false
+
+two:
+  name: MyString
+  travel_date: 2022-03-14
+  country_id: 1
+  bucketlist: false
