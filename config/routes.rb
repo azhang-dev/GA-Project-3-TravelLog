@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
- resource :users, only: [:create]
  
- post "/login", to: "auth#login"
 
- get "/auto_login", to: "auth#auto_login"
+post '/user_token' => 'user_token#create'
+get "/users" => "users#index"
+post "/users" => "users#create"
+#  resource :users, only: [:create]
+ 
+ 
+#  post "/login" => "auth#login"
 
- get "/user_is_authed", to: "auth#user_is_authed"
+#  get "/auto_login" => "auth#auto_login"
+
+#  get "/user_is_authed" => "auth#user_is_authed"
  
 end
