@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
-    skip_before_action :require_login, only: [:create,:index]
+    # skip_before_action :require_login, only: [:create,:index]
+    before_action :authenticate_user, except:[:create]
+
+    def current
+        render json: current_user
+    end
 
     def index
         # raise "hell"
