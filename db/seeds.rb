@@ -4,7 +4,7 @@ User.destroy_all
 
 u1= User.create! name: 'angela', email: 'angela@ga.co', password: 'chicken', username: "@angela"
 u2= User.create! name: 'luke', email: 'luke@ga.co', password: 'chicken', username: "@luke"
-u2= User.create! name: 'rowena', email: 'rowena@ga.co', password: 'chicken', username: "@rowena"
+u3= User.create! name: 'rowena', email: 'rowena@ga.co', password: 'chicken', username: "@rowena"
 
 puts "created #{User.count} users"
 
