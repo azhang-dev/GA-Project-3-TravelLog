@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  city: MyString
+  country: MyString
+  visited: false
+  date_visited: 2022-03-17
+  bucketlist: false
+  images: MyText
+  note: MyText
+  user_id: 1
+
+two:
+  name: MyString
+  city: MyString
+  country: MyString
+  visited: false
+  date_visited: 2022-03-17
+  bucketlist: false
+  images: MyText
+  note: MyText
+  user_id: 1

@@ -12,25 +12,18 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.create(user_params)
-        if user.valid?
-            payload = {user_id: user.id}
-            token = encode_token(payload)
-            render json: {user: user, jwt: token}
+        user = User.create(name: params[:name], email: params[:email], password: params[:password])
+        if user.save
+           
+            render json: user
         else
-            render json: {errors: user.errors.full_message}, status: :not_acceptable
+            render json: {error: "Could not create user"}, status: 402
         end
     end
 
 
-    # def current
-    #     render json: current_user
-    # end
-
-    
-
     private
     def user_params
-        params.permit(:name, :email, :password, :username)
+        params.require(:_json).permit(:name, :email, :password)
     end
 end

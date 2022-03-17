@@ -8,21 +8,36 @@ u2= User.create! name: 'rowena', email: 'rowena@ga.co', password: 'chicken', use
 
 puts "created #{User.count} users"
 
-##########
-print "Creating Countries..."
 
-Country.destroy_all
+print "Creating Locations ...."
 
-c1 = Country.create! name:'Peru' 
+Location.destroy_all
 
-puts "created #{Country.count} Countries"
 
-##########
 
-print "Creating Cities..."
 
-City.destroy_all
 
-ct1 = City.create! name:'Lima', travel_date:"2022-03-01", country_id: c1.id
-puts "created #{City.count} cities"###########
+
+
+
+
+
+
+# ##########
+# print "Creating Countries..."
+
+# Country.destroy_all
+
+# c1 = Country.create! name:'Peru' 
+
+# puts "created #{Country.count} Countries"
+
+# ##########
+
+# print "Creating Cities..."
+
+# City.destroy_all
+
+# ct1 = City.create! name:'Lima', travel_date:"2022-03-01", country_id: c1.id
+# puts "created #{City.count} cities"###########
 
