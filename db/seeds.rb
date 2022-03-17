@@ -9,9 +9,9 @@ u3= User.create! name: 'rowena', email: 'rowena@ga.co', password: 'chicken', use
 puts "created #{User.count} users"
 
 
-print "Creating Locations ...."
+# print "Creating Locations ...."
 
-Location.destroy_all
+# Location.destroy_all
 
 
 
