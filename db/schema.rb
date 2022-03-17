@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2022_03_17_105431) do
     t.boolean "visited"
     t.date "date_visited"
     t.boolean "bucketlist"
-    t.text "images"
+    t.text "images", default: [], array: true
     t.text "note"
     t.integer "user_id"
     t.datetime "created_at", null: false

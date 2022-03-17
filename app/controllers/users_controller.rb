@@ -1,17 +1,17 @@
 class UsersController < ApplicationController
     # skip_before_action :require_login, only: [:create,:index]
-    before_action :authenticate_user, except:[:create]
+    before_action :authenticate_user, except:[:create, :index]
 
     def current
         render json: current_user
     end
 
     def index
-        # raise "hell"
         render json: User.all
     end
 
     def create
+        
         user = User.create(name: params[:name], email: params[:email], password: params[:password])
         if user.save
            
@@ -21,8 +21,13 @@ class UsersController < ApplicationController
         end
     end
 
+    def destroy
+        User.destroy params[:id]
+    end
+
 
     private
+
     def user_params
         params.require(:_json).permit(:name, :email, :password)
     end

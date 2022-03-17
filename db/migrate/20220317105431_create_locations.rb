@@ -7,7 +7,7 @@ class CreateLocations < ActiveRecord::Migration[5.2]
       t.boolean :visited
       t.date :date_visited
       t.boolean :bucketlist
-      t.text :images
+      t.text :images, default: [], array: true
       t.text :note
       t.integer :user_id
 
