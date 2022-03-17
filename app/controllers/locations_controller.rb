@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
-  before_action :authenticate_user
-  
+ 
+  before_action :authenticate_user, except:[:create, :show]
 
   def create
     location = Location.new location_params
@@ -16,7 +16,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-    location = Location.find(params[:id])
+    render json: Location.find(params[:id]) 
   end
 
   def edit

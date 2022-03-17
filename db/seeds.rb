@@ -9,10 +9,14 @@ u3= User.create! name: 'rowena', email: 'rowena@ga.co', password: 'chicken', use
 puts "created #{User.count} users"
 
 
-# print "Creating Locations ...."
+print "Creating Locations ...."
 
-# Location.destroy_all
+Location.destroy_all
 
+l1 = Location.create! name: 'Syndey Opera House', city: 'Sydney', country: 'Australia', date_visited: '2022-03-18', visited: true, bucketlist: false, note: "Attended a concert there.", user_id: u1.id
+
+puts "created #{Location.count} locations"
+puts " #{u1.name} has visited #{u1.locations[0].name}"
 
 
 
