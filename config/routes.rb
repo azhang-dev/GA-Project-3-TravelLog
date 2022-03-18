@@ -7,8 +7,9 @@ get "/users/current" => "users#current"
 
 get "/users" => "users#index"
 post "/user/create" => "users#create"
+# get "/user/:id/locations" => "locations#user_locations"
 
-resources :locations, only: [:create, :show, :update, :destroy]
+resources :locations, only: [:create, :index, :show, :update, :destroy]
 
  
  

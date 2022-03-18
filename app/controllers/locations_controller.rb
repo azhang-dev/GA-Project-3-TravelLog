@@ -1,6 +1,14 @@
 class LocationsController < ApplicationController
  
-  before_action :authenticate_user, except:[:create, :show]
+  before_action :authenticate_user
+  
+  # index of locations of a specific user(user_id)
+  # def user_locations
+  #   user = User.find params[:id]
+  #   locations = user.locations
+  #   render json: locations
+  # end
+  
 
   def create
     location = Location.new location_params
@@ -11,13 +19,21 @@ class LocationsController < ApplicationController
         location.images << req["public_id"]
       end
     end
+    locations.user_id = current_user.id
     location.save
 
   end
 
+  # index of locations for every user
+  def index
+    render json: current_user.locations
+  end
+
+  # show specific location by id
   def show
     render json: Location.find(params[:id]) 
   end
+
 
   def edit
 
