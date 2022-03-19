@@ -13,14 +13,16 @@ class LocationsController < ApplicationController
   def create
     location = Location.new location_params
 
-    if params[:location][:images].present?
-      params[:location][:images].each do |image|
-        req = Cloudinary::Uploader.upload(image)
-        location.images << req["public_id"]
-      end
-    end
-    locations.user_id = current_user.id
+    # if params[:location][:images].present?
+    #   params[:location][:images].each do |image|
+    #     req = Cloudinary::Uploader.upload(image)
+    #     location.images << req["public_id"]
+    #   end
+    # end
+    location.user_id = current_user.id
     location.save
+    
+    render json: location
 
   end
 
@@ -58,7 +60,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:name,:email,:password,:studio,:studio_url,:location)
+    params.require(:location).permit(:name, :city, :country, :visited, :date_visited, :bucketlist, :images, :note, :lat, :lng)
   end
 
 end
