@@ -58,4 +58,4 @@ gem 'knock'
 
 gem 'jwt'
 
-gem 'cloudinary'
+
