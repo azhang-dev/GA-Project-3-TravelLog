@@ -3,15 +3,22 @@ class LocationsController < ApplicationController
   before_action :authenticate_user
   
 
+
   def create
     location = Location.new location_params
-
     #Cloudinary Multi Images
     if params[:location][:images].present?
       params[:location][:images].each do |image|
-        location.images << image
+        if location.images == nil
+          location.images =[]
+        end
+
+        location.images << image 
       end
     end
+
+
+  
     location.user_id = current_user.id
     location.save
     
@@ -39,6 +46,10 @@ class LocationsController < ApplicationController
     location.update_attributes(location_params)
     location.save
   end
+
+  # def gallery
+  #   location
+  # end
 
   def destroy
     Location.destroy params[:id]
