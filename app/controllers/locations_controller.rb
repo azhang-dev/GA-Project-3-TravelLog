@@ -2,23 +2,16 @@ class LocationsController < ApplicationController
  
   before_action :authenticate_user
   
-  # index of locations of a specific user(user_id)
-  # def user_locations
-  #   user = User.find params[:id]
-  #   locations = user.locations
-  #   render json: locations
-  # end
-  
 
   def create
     location = Location.new location_params
 
-    # if params[:location][:images].present?
-    #   params[:location][:images].each do |image|
-    #     req = Cloudinary::Uploader.upload(image)
-    #     location.images << req["public_id"]
-    #   end
-    # end
+    #Cloudinary Multi Images
+    if params[:location][:images].present?
+      params[:location][:images].each do |image|
+        location.images << image
+      end
+    end
     location.user_id = current_user.id
     location.save
     
@@ -36,17 +29,11 @@ class LocationsController < ApplicationController
     render json: Location.find(params[:id]) 
   end
 
-
-  def edit
-
-  end
-
   def update
     location = Location.find(params[:id])
     if params[:location][:images].present?
       params[:location][:images].each do |image|
-        req = Cloudinary::Uploader.upload(image)
-        location.images << req["public_id"]
+        location.images << image
       end
     end
     location.update_attributes(location_params)
