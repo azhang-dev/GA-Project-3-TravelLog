@@ -12,7 +12,6 @@ class LocationsController < ApplicationController
         if location.images == nil
           location.images =[]
         end
-
         location.images << image 
       end
     end
